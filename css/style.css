@@ -1,8 +1,4 @@
-/*!
- * Bootstrap v4.3.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 The Bootstrap Authors
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+
  */
 :root {
   --blue: #007bff;
@@ -75,6 +71,52 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem; }
+
+
+*/
+
+.wrapper {
+
+    /* Keeping the Text in the
+       center of the Screen */
+    display: flex;
+    justify-content: center;
+}
+
+.typewriter h1 {
+    /* Content is not revealed
+       until the animation */
+    overflow: hidden;
+
+    /* Keeps the content on a single line */
+    white-space: nowrap;
+
+    /* Gives that scrolling effect
+       as the typing happens */
+    margin: 0 auto;
+
+    /* Typing Effect Animation */
+    animation: typing 3.5s steps(30, end)
+}
+
+/* Typing Effect on Website Loading */
+@keyframes typing {
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
+}
+*/
+
+
+
+
+
+
+
+
 
 abbr[title],
 abbr[data-original-title] {

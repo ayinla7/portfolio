@@ -52,12 +52,20 @@
               <h1 class="mb-3 bread">I'm <span style="color:Gold ">Ayinla Kwamdeen</span></h1>
 		          	<div class="text">
 			            <!-- <h1 class="mb-4 mt-3">I'm <span style="color:Gold ">Ayinla Kwamdeen</span></h1> -->
-                  <h2 class="mb-4 mt-3">I'm a Web Developer</h2>
+                  <h2 class="mb-4 mt-3"><span
+                 class="txt-rotate"
+                 data-period="2000"
+                 data-rotate='[ "Web Developer...", "Software Developer..."]'></span></h2>
 			            <p>
                     <a href="#contact-section" class="btn btn-primary py-3 px-4">Hire me</a>
                     <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My works</a>
                   </p>
 		          </div>
+              <!-- <div class="wrapper">
+                  <div class="typewriter">
+                      <h1>Hello Geeks of GeeksforGeeks</h1>
+                  </div>
+              </div> -->
 
 
             </div>
@@ -267,6 +275,26 @@
 			</div>
 			</div>
     		<div class="row">
+				<div class="col-md-4">
+					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/cl.png);">
+						<div class="overlay"></div>
+							<div href="https://www.cryptolife.capital" class="text text-center p-4">
+							<h3><a href="https://www.cryptolife.capital">Cryptolife Capital </a></h3>
+							<span> Cryptocurrency investment services </span>
+						</div>
+					</div>
+				</div>
+		
+				<div class="col-md-4">
+				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/hb.png);">
+					<div class="overlay"></div>
+						<div href="https://www.howbodi.io" class="text text-center p-4">
+							<h3><a href="https://www.howbodi.io"> Howbodi </a></h3>
+							<span> Mental Healthcare services </span>
+						</div>
+					</div>
+				</div>
+
 
           <div class="col-md-4">
   					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/sd.jpeg);">
@@ -289,6 +317,8 @@
 					</div>
 				  </div>
 
+				 
+
           <div class="col-md-4">
             <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/am.png); background-color: aliceblue;">
               <div class="overlay"></div>
@@ -309,6 +339,30 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="col-md-4">
+					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/blog.jpg);">
+						<div class="overlay"></div>
+							<div href="https://articlesite.netlify.app" class="text text-center p-4">
+							<h3><a href="https://articlesite.netlify.app">Article/Blog</a></h3>
+							<span> Front-End for Article</span>
+						</div>
+					</div>
+				  </div>
+				  
+
+				  <div class="col-md-4">
+					<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/bl.png);">
+						<div class="overlay"></div>
+							<div href="https://recruitmentsite.netlify.app" class="text text-center p-4">
+							<h3><a href="https://recruitmentsite.netlify.app">Recruitment Website</a></h3>
+							<span> Front-End for Recruitment website.</span>
+						</div>
+					</div>
+				  </div>
+
+
+
 
         <div class="col-md-4">
       <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/fruit.jpeg);">
@@ -482,8 +536,84 @@
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/scrollax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <script>
+
+  var TxtRotate = function(el, toRotate, period) {
+this.toRotate = toRotate;
+this.el = el;
+this.loopNum = 0;
+this.period = parseInt(period, 10) || 2000;
+this.txt = '';
+this.tick();
+this.isDeleting = false;
+};
+
+TxtRotate.prototype.tick = function() {
+var i = this.loopNum % this.toRotate.length;
+var fullTxt = this.toRotate[i];
+
+if (this.isDeleting) {
+  this.txt = fullTxt.substring(0, this.txt.length - 1);
+} else {
+  this.txt = fullTxt.substring(0, this.txt.length + 1);
+}
+
+this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+var that = this;
+var delta = 300 - Math.random() * 100;
+
+if (this.isDeleting) { delta /= 2; }
+
+if (!this.isDeleting && this.txt === fullTxt) {
+  delta = this.period;
+  this.isDeleting = true;
+} else if (this.isDeleting && this.txt === '') {
+  this.isDeleting = false;
+  this.loopNum++;
+  delta = 500;
+}
+
+setTimeout(function() {
+  that.tick();
+}, delta);
+};
+
+window.onload = function() {
+var elements = document.getElementsByClassName('txt-rotate');
+for (var i=0; i<elements.length; i++) {
+  var toRotate = elements[i].getAttribute('data-rotate');
+  var period = elements[i].getAttribute('data-period');
+  if (toRotate) {
+    new TxtRotate(elements[i], JSON.parse(toRotate), period);
+  }
+}
+// INJECT CSS
+var css = document.createElement("style");
+css.type = "text/css";
+css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+document.body.appendChild(css);
+};
+
+    // var index = 0;
+    // var text = 'Hello Geeks of GeeksforGeeks';
+    // var speed = 50;
+    //
+    // function textEffect() {
+    //     if (index < text.length) {
+    //         document.getElementById("effect")
+    //                 .innerHTML += text.charAt(index);
+    //         index++;
+    //         setTimeout(textEffect, speed);
+    //     }
+    // }
+
+  </script>
 
   <script src="js/main.js"></script>
+
 
   </body>
 </html>
